@@ -3,9 +3,9 @@ public class CostePersonal {
 	static float CosteDelPersonal(Trabajador trabajadores[]) {
 		float costeFinal = 0;
 		Trabajador trabajador;
-		for (int i = 0; y < trabajadores.length; i++) {
+		for (int i = 0; i < trabajadores.length; i++) {
 			trabajador = trabajadores[i];
-			if (trabajador.getTipoTrabajador() == Trabajador.DIRECTOR|| trabajador.getTipoTrabajador() == Trabajador.SUBDIRECTOR) {
+			if (esJefe(trabajador)){
 					costeFinal += trabajador.getNomina();
 			}
 			else
@@ -15,4 +15,9 @@ public class CostePersonal {
 		}
 		return costeFinal;
 	}
+
+	public static boolean esJefe(Trabajador trabajador){
+		return trabajador.getTipoTrabajador() == Trabajador.DIRECTOR|| trabajador.getTipoTrabajador() == Trabajador.SUBDIRECTOR;
+	}
+		
 }
